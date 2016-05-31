@@ -1,0 +1,54 @@
+{
+  "name": "react-time-input",
+  "version": "0.0.0",
+  "description": "React time input component",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start",
+    "test:watch": "karma start --singleRun=false autoWatch=true",
+    "start": "npm run clean && webpack-dev-server",
+    "build:examples": "npm run clean && webpack",
+    "clean": "rimraf examples/build"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "forms",
+    "time",
+    "input"
+  ],
+  "author": "Samuel Santiago <samuelsantia@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.9.0",
+    "babel-eslint": "^6.0.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-react-hmre": "^1.1.1",
+    "eslint": "^2.10.2",
+    "eslint-loader": "^1.3.0",
+    "eslint-plugin-react": "^5.1.1",
+    "expect": "^1.20.1",
+    "html-webpack-plugin": "^2.19.0",
+    "isparta-loader": "^2.0.0",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-coverage": "^1.0.0",
+    "karma-mocha": "^1.0.1",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.5.3",
+    "react": "^0.14.8",
+    "react-addons-test-utils": "^0.14.8",
+    "react-dom": "^0.14.8",
+    "rimraf": "^2.5.2",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.13.0"
+  },
+  "peerDependencies": {
+    "react": "^0.14 || ^0.15",
+    "react-dom": "^0.14 || ^0.15"
+  }
+}
