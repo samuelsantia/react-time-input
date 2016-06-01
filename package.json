@@ -3,12 +3,17 @@
   "version": "0.0.0",
   "description": "React time input component",
   "main": "index.js",
+  "jsnext:main": "src/index.jsx",
   "scripts": {
     "test": "karma start",
-    "test:watch": "karma start --singleRun=false autoWatch=true",
+    "test:watch": "karma start --singleRun=false --autoWatch=true",
     "start": "npm run clean && webpack-dev-server",
     "build:examples": "npm run clean && webpack",
     "clean": "rimraf examples/build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samuelsantia/react-time-input.git"
   },
   "keywords": [
     "react",
