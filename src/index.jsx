@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class DurationInput extends React.Component {
+/**
+ * TimeInput component
+ * @extends React.Component
+ */
+class TimeInput extends Component {
 
   render() {
     return <div>DurationInput</div>;
   }
 }
 
-export default DurationInput;
+export default TimeInput;
