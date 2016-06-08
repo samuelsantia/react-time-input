@@ -18,7 +18,7 @@ module.exports = function (config) {
     preprocessors: {
       'karma.webpack.js': [ 'webpack', 'sourcemap' ]
     },
-    reporters: [ 'dots', 'coverage' ],
+    reporters: [ 'mocha', 'coverage' ],
     webpack: {
       devtool: 'inline-source-map',
       module: {
