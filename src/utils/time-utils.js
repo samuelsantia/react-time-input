@@ -36,10 +36,18 @@ export default {
   /**
    * split passed time in object with hours, minutes, seconds and millisseconds
    *
-   * @param {(Date|string)} time to split
+   * @param {?(Date|string)} time to split
    * @return {SplittedTime}
    */
   splitTime(time) {
+    if ( typeof time === 'undefined' || time === null ) {
+      return {
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+        millis: 0
+      };
+    }
     if ( !_validateTime(time) ) {
       throw new TypeError(`${time} must be a valid time string or instance of date. Valid time string are in format hh:mm or hh:mm:ss or hh:mm:ss.SSS`);
     }

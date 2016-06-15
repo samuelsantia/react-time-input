@@ -84,5 +84,11 @@ describe('timeUtils', function () {
         expect(result).toEqual(expectation);
       });
     });
+
+    it('should return 0 values when no time passed', function () {
+      const expectation = { hours: 0, minutes: 0, seconds: 0, millis: 0 };
+      expect(timeUtils.splitTime()).toEqual(expectation);
+      expect(timeUtils.splitTime(null)).toEqual(expectation);
+    });
   });
 });
