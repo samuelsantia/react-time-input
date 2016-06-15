@@ -24,28 +24,28 @@ describe('TimeInput', function() {
       'value',
       'InvalidFormat',
       timeUtils.validateTimeProp,
-      'Warning: Failed propType: value must be a valid time string or instance of date in component TimeInput'
+      'Warning: Failed propType: value must be a valid time string or instance of date in component TimeInput. Valid time string are in format hh:mm or hh:mm:ss or hh:mm:ss.SSS'
     );
     generatePropTypeTest(
       TimeInput,
       'defaultValue',
       'InvalidFormat',
       timeUtils.validateTimeProp,
-      'Warning: Failed propType: defaultValue must be a valid time string or instance of date in component TimeInput'
+      'Warning: Failed propType: defaultValue must be a valid time string or instance of date in component TimeInput. Valid time string are in format hh:mm or hh:mm:ss or hh:mm:ss.SSS'
     );
     generatePropTypeTest(
       TimeInput,
       'min',
       'InvalidFormat',
       timeUtils.validateTimeProp,
-      'Warning: Failed propType: min must be a valid time string or instance of date in component TimeInput'
+      'Warning: Failed propType: min must be a valid time string or instance of date in component TimeInput. Valid time string are in format hh:mm or hh:mm:ss or hh:mm:ss.SSS'
     );
     generatePropTypeTest(
       TimeInput,
       'max',
       'InvalidFormat',
       timeUtils.validateTimeProp,
-      'Warning: Failed propType: max must be a valid time string or instance of date in component TimeInput'
+      'Warning: Failed propType: max must be a valid time string or instance of date in component TimeInput. Valid time string are in format hh:mm or hh:mm:ss or hh:mm:ss.SSS'
     );
     generatePropTypeTest(
       TimeInput,

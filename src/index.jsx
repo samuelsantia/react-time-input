@@ -4,6 +4,7 @@ import cx from 'classnames';
 import utils from './utils/utils';
 import timeUtils from './utils/time-utils';
 
+/** @const {Object} propTypes validations */
 const propTypes = {
   /** @prop {(Date|string)} [value] - input value */
   value: timeUtils.validateTimeProp,
@@ -21,6 +22,7 @@ const propTypes = {
   className: PropTypes.string
 };
 
+/** @const {Object} defaultProps */
 const defaultProps = {
   step: 60, // 1 minute
   onChange: utils.noop
@@ -40,21 +42,21 @@ class TimeInput extends Component {
     return utils.omit(this.props, Object.keys(propTypes));
   }
 
+  /** render component */
   render() {
     const { className } = this.props;
     const inputClassName = cx('time-input', className);
 
     return (
       <input
+        {...this.inputProps}
         type='text'
         className={inputClassName}
-        {...this.inputProps}
       />
     );
   }
 }
 
-// STATIC members
 /**
  * Component props validations
  * @member {Object} propTypes
