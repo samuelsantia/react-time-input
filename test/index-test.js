@@ -1,6 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import TestUtils from 'react-addons-test-utils';
+import { oneLine } from 'common-tags';
 
 import shallowRender from './test-helpers/shallow-render-helper';
 import propsTesters from './test-helpers/props-testers';
@@ -25,28 +26,60 @@ describe('TimeInput', function() {
       'value',
       'InvalidFormat',
       timeUtils.validateTimeProp,
-      'Warning: Failed propType: value must be a valid time string or instance of date in component TimeInput. Valid time string are in format hh:mm or hh:mm:ss or hh:mm:ss.SSS'
+      oneLine`Warning: Failed propType: value must be a valid time string,
+      instance of date or TimeShape in component TimeInput.
+      Valid time string are in format hh:mm or hh:mm:ss or hh:mm:ss.SSS.
+      Valid time shape is {{
+        hours: number,
+        minutes: number,
+        [seconds]: number,
+        [millis]: number
+      }}`
     );
     generatePropTypeTest(
       TimeInput,
       'defaultValue',
       'InvalidFormat',
       timeUtils.validateTimeProp,
-      'Warning: Failed propType: defaultValue must be a valid time string or instance of date in component TimeInput. Valid time string are in format hh:mm or hh:mm:ss or hh:mm:ss.SSS'
+      oneLine`Warning: Failed propType: defaultValue must be a valid time string,
+      instance of date or TimeShape in component TimeInput.
+      Valid time string are in format hh:mm or hh:mm:ss or hh:mm:ss.SSS.
+      Valid time shape is {{
+        hours: number,
+        minutes: number,
+        [seconds]: number,
+        [millis]: number
+      }}`
     );
     generatePropTypeTest(
       TimeInput,
       'min',
       'InvalidFormat',
       timeUtils.validateTimeProp,
-      'Warning: Failed propType: min must be a valid time string or instance of date in component TimeInput. Valid time string are in format hh:mm or hh:mm:ss or hh:mm:ss.SSS'
+      oneLine`Warning: Failed propType: min must be a valid time string,
+      instance of date or TimeShape in component TimeInput.
+      Valid time string are in format hh:mm or hh:mm:ss or hh:mm:ss.SSS.
+      Valid time shape is {{
+        hours: number,
+        minutes: number,
+        [seconds]: number,
+        [millis]: number
+      }}`
     );
     generatePropTypeTest(
       TimeInput,
       'max',
       'InvalidFormat',
       timeUtils.validateTimeProp,
-      'Warning: Failed propType: max must be a valid time string or instance of date in component TimeInput. Valid time string are in format hh:mm or hh:mm:ss or hh:mm:ss.SSS'
+      oneLine`Warning: Failed propType: max must be a valid time string,
+      instance of date or TimeShape in component TimeInput.
+      Valid time string are in format hh:mm or hh:mm:ss or hh:mm:ss.SSS.
+      Valid time shape is {{
+        hours: number,
+        minutes: number,
+        [seconds]: number,
+        [millis]: number
+      }}`
     );
     generatePropTypeTest(
       TimeInput,

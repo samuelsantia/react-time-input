@@ -1,4 +1,7 @@
 import expect from 'expect';
+import { oneLine } from 'common-tags';
+import isPlainObject from 'lodash/isPlainObject';
+
 import timeUtils from '../../src/utils/time-utils';
 
 import * as fixtures from '../fixtures/utils/time-utils-fixtures';
@@ -13,7 +16,7 @@ describe('timeUtils', function () {
 
     fixtures.validTimePropsArgs.forEach(function (args) {
 
-      it('should pass with valid arguments', function () {
+      it(`should pass with valid ${args[2]}`, function () {
         const result = timeUtils.validateTimeProp.apply(undefined, args);
         expect(result).toBeA('undefined');
       });
@@ -51,7 +54,15 @@ describe('timeUtils', function () {
       });
 
       it(`exception should have correct message`, function () {
-        expect(fn).toThrow(`${time} must be a valid time string or instance of date. Valid time string are in format hh:mm or hh:mm:ss or hh:mm:ss.SSS`);
+        expect(fn).toThrow(oneLine`
+        ${time} must be a valid time string, instance of date or TimeShape.
+        Valid time string are in format hh:mm or hh:mm:ss or hh:mm:ss.SSS.
+        Valid time shape is {{
+          hours: number,
+          minutes: number,
+          [seconds]: number,
+          [millis]: number
+        }}`);
       });
     });
 
@@ -63,13 +74,13 @@ describe('timeUtils', function () {
       before(function() {
         result = timeUtils.splitTime(time);
         if ( typeof time === 'string' ) {
-          const [
-            hours = 0,
-            minutes = 0,
-            seconds = 0,
-            millis = 0
-          ] = time.split(/[\.:]/).map(v => parseInt(v) );
-          expectation = { hours, minutes, seconds, millis };
+          const timeUnits = ['hours', 'minutes', 'seconds', 'millis'];
+
+          expectation = time.split(/[\.:]/).map(v => parseInt(v) )
+            .reduce((shape, value, i) => {
+              shape[timeUnits[i]] = value;
+              return shape;
+            }, {});
         } else if ( time instanceof Date ) {
           expectation = {
             hours: time.getHours(),
@@ -77,6 +88,8 @@ describe('timeUtils', function () {
             seconds: time.getSeconds(),
             millis: time.getMilliseconds()
           }
+        } else if ( isPlainObject(time) ) {
+          expectation = time;
         }
       });
 
@@ -86,9 +99,8 @@ describe('timeUtils', function () {
     });
 
     it('should return 0 values when no time passed', function () {
-      const expectation = { hours: 0, minutes: 0, seconds: 0, millis: 0 };
+      const expectation = { hours: 0, minutes: 0 };
       expect(timeUtils.splitTime()).toEqual(expectation);
-      expect(timeUtils.splitTime(null)).toEqual(expectation);
     });
   });
 });

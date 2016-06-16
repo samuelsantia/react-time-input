@@ -60,6 +60,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "common-tags": "^1.2.2",
     "lodash": "^4.13.1"
   }
 }
