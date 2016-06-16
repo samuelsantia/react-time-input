@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import cx from 'classnames';
 
-import utils from './utils/utils';
+import omit from 'lodash/omit';
+import noop from 'lodash/noop';
 import timeUtils from './utils/time-utils';
 
 /** @const {Object} propTypes validations */
@@ -25,7 +26,7 @@ const propTypes = {
 /** @const {Object} defaultProps */
 const defaultProps = {
   step: 60, // 1 minute
-  onChange: utils.noop
+  onChange: noop
 };
 
 /**
@@ -39,7 +40,7 @@ class TimeInput extends Component {
    * @return {Object} the renderer input props
    */
   get inputProps() {
-    return utils.omit(this.props, Object.keys(propTypes));
+    return omit(this.props, Object.keys(propTypes));
   }
 
   /** render component */

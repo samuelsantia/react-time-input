@@ -6,7 +6,8 @@ import shallowRender from './test-helpers/shallow-render-helper';
 import propsTesters from './test-helpers/props-testers';
 
 import TimeInput from '../src/index.jsx';
-import utils from '../src/utils/utils';
+import omit from 'lodash/omit';
+import noop from 'lodash/noop';
 import timeUtils from '../src/utils/time-utils';
 
 const { generatePropTypeTest, generateDefaultPropTest } = propsTesters;
@@ -74,7 +75,7 @@ describe('TimeInput', function() {
     });
 
     generateDefaultPropTest(TimeInput, 'step', 60);
-    generateDefaultPropTest(TimeInput, 'onChange', utils.noop);
+    generateDefaultPropTest(TimeInput, 'onChange', noop);
   });
 
   describe('render component', function () {
